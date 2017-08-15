@@ -22,7 +22,7 @@ dependencies:
   pre:
     - mkdir -p ~/flags
     - mkdir -p ~/mybin
-    - ./tools/ci/android-sdk-setup.sh ${ANDROID_HOME} 3859397 ~/flags/android-sdk "tools" "platforms;android-25" "build-tools;26.0.1" "platform-tools" "docs"
+    - ./tools/ci/android-sdk-setup.sh ${ANDROID_HOME} 3859397 ~/flags/android-sdk "tools" "platforms;android-26" "build-tools;26.0.1" "platform-tools" "docs"
     - PATH="/home/ubuntu/mybin/gcloud/bin:${PATH}" && ./tools/ci/google-cloud-test-lab-setup.sh /home/ubuntu/mybin/gcloud 166.0.0 ~/flags/gcloud-setup ${GCLOUD_SERVICE_KEY_BASE_64} ${GCLOUD_PROJECT_ID}
     - sudo apt-get update; sudo apt-get install parallel
   override:
@@ -37,7 +37,7 @@ test:
   override:
     - ./gradlew assemble assembleDebugAndroidTest lint findbugs dependencyUpdates --profile
 
-    - PATH="/home/ubuntu/mybin/gcloud/bin:${PATH}" && parallel tools/ci/firebase-test-lab-test-module.sh toastPluginSettingApp ${GCLOUD_DEFAULT_BUCKET} {1} ':::' "model=Nexus4,version=19,orientation=portrait" "model=NexusLowRes,version=25,orientation=portrait"
+    - PATH="/home/ubuntu/mybin/gcloud/bin:${PATH}" && parallel tools/ci/firebase-test-lab-test-module.sh toastPluginSettingApp ${GCLOUD_DEFAULT_BUCKET} {1} ':::' "model=Nexus4,version=19,orientation=portrait" "model=NexusLowRes,version=26,orientation=portrait"
 
 
     # Convert the coverage.ec files into readable reports

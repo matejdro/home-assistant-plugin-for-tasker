@@ -56,7 +56,7 @@ public final class FireReceiver extends AbstractPluginSettingReceiver {
         ActionService.enqueueWork(context, intent);
         Lumberjack.d("Set result code \" Pending\"");
         if (isOrderedBroadcast())
-            setResultCode(TaskerPlugin.Setting.RESULT_CODE_PENDING);
+            setResultCode(TaskerPlugin.Setting.RESULT_CODE_OK);
     }
 
 
